@@ -1,7 +1,7 @@
 buildscript {
     repositories {
         jcenter()
-        maven { url 'https://maven.infullmobile.com/public'}
+        maven { url 'https://maven.infullmobile.com/public' }
     }
     dependencies {
         classpath 'com.infullmobile.gradle:mavenplugin:1.0.3'
@@ -23,7 +23,13 @@ dependencies {
     provided androidAppcompat
     provided androidDesign
     provided kotlinLanguageDependency
+    compile ('com.android.databinding:compiler:2.3.2'){
+        exclude module: 'guava'
+    }
 }
+/*configurations.all {
+    resolutionStrategy.force 'com.google.guava:guava:19.0-rc2'
+}*/
 
 repositories {
     mavenCentral()
@@ -35,4 +41,8 @@ ifmmaven {
 
     description "Model View Presenter library for kotlin android"
     buildType "release"
+}
+
+kapt {
+    generateStubs = true
 }
