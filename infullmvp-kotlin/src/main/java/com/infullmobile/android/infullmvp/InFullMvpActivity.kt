@@ -1,6 +1,8 @@
 package com.infullmobile.android.infullmvp
 
 import android.content.Intent
+import android.databinding.DataBindingUtil
+import android.databinding.ViewDataBinding
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
@@ -8,7 +10,8 @@ import android.view.MenuItem
 
 abstract class InFullMvpActivity<
         PresenterType : Presenter<PresentedViewType>,
-        out PresentedViewType : PresentedActivityView<PresenterType>
+        out PresentedViewType : PresentedActivityView<PresenterType>,
+        in BindingType : ViewDataBinding
         > : AppCompatActivity() {
 
     abstract val presenter: PresenterType
@@ -19,7 +22,9 @@ abstract class InFullMvpActivity<
     override final fun onPostCreate(savedInstanceState: Bundle?) {
         super.onPostCreate(savedInstanceState)
         injectIntoGraph()
-        setContentView(presentedView.layoutResId)
+        val binding = DataBindingUtil.setContentView<BindingType>(this, presentedView.layoutResId)
+        presentedView.binding = binding
+        presenter.binding = binding
         presentedView.bindUiElements(this, presenter)
         presenter.bind(intent.extras ?: Bundle(), savedInstanceState ?: Bundle(), intent.data)
     }

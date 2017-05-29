@@ -1,6 +1,7 @@
 package com.infullmobile.android.infullmvp
 
 import android.content.Context
+import android.databinding.ViewDataBinding
 import android.support.v7.app.ActionBar
 import android.support.v7.widget.Toolbar
 import android.view.Menu
@@ -9,9 +10,9 @@ import android.view.MenuItem
 import android.view.View
 
 abstract class PresentedActivityView<PresenterType : Any>
-    : ContextPresentedView<PresenterType, InFullMvpActivity<*, *>>() {
+    : ContextPresentedView<PresenterType, InFullMvpActivity<*, *, *>>() {
 
-    private var activity: InFullMvpActivity<*, *>? = null
+    private var activity: InFullMvpActivity<*, *, *>? = null
 
     override val context: Context
         get() = activity ?: throw IllegalStateException("This view must be bound to activity")
@@ -19,11 +20,13 @@ abstract class PresentedActivityView<PresenterType : Any>
     override val viewFinder: PresentedView<PresenterType, *>.(Int) -> View?
         get() = { activity?.findViewById(it) }
 
-    override fun bindUiElements(boundingView: InFullMvpActivity<*, *>, presenter: PresenterType) {
+    override fun bindUiElements(boundingView: InFullMvpActivity<*, *, *>, presenter: PresenterType) {
         this.activity = boundingView
         this.boundPresenter = presenter
         onViewsBound()
     }
+
+    open lateinit var binding: ViewDataBinding
 
     open val actionBar: ActionBar?
         get() = activity?.getSupportActionBar()
