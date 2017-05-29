@@ -2,6 +2,7 @@ package com.infullmobile.android.infullmvp
 
 import android.content.Context
 import android.content.Intent
+import android.databinding.ViewDataBinding
 import android.net.Uri
 import android.os.Bundle
 
@@ -12,6 +13,8 @@ abstract class Presenter<out PresentedViewType : PresentedView<*, *>>(val presen
 
     val tag: String
         get() = javaClass.simpleName
+
+    lateinit var binding: ViewDataBinding
 
     abstract fun bind(intentBundle: Bundle, savedInstanceState: Bundle, intentData: Uri?)
 
