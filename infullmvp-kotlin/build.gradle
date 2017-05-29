@@ -17,19 +17,20 @@ android {
     lintOptions {
         lintConfig rootProject.file('gradle/lint.xml')
     }
+    dataBinding{
+        enabled = true
+    }
 }
 
 dependencies {
     provided androidAppcompat
     provided androidDesign
     provided kotlinLanguageDependency
-    compile ('com.android.databinding:compiler:2.3.2'){
+    compile 'com.android.support:support-v4:24.2.1'
+    kapt ('com.android.databinding:compiler:2.3.2'){
         exclude module: 'guava'
     }
 }
-/*configurations.all {
-    resolutionStrategy.force 'com.google.guava:guava:19.0-rc2'
-}*/
 
 repositories {
     mavenCentral()

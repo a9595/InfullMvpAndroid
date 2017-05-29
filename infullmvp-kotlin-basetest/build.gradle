@@ -24,7 +24,6 @@ dependencies {
     compile mockito
     compile robolectric
     compile robolectricShadows
-    androidTestCompile 'com.google.guava:guava:19.0-rc2'
 
     provided project(path: ':infullmvp-kotlin')
     provided androidAppcompat
