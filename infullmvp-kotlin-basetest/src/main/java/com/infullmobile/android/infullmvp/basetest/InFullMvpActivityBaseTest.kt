@@ -1,6 +1,7 @@
 package com.infullmobile.android.infullmvp.basetest
 
 import android.content.Intent
+import android.databinding.ViewDataBinding
 
 import com.infullmobile.android.infullmvp.InFullMvpActivity
 import com.infullmobile.android.infullmvp.PresentedActivityView
@@ -12,9 +13,10 @@ import org.robolectric.RuntimeEnvironment
 import org.robolectric.util.ActivityController
 
 abstract class InFullMvpActivityBaseTest<
-        T : InFullMvpActivity<PresenterType, PresentedViewType>,
+        T : InFullMvpActivity<PresenterType, PresentedViewType, BindingType>,
         PresenterType : Presenter<PresentedViewType>,
-        out PresentedViewType : PresentedActivityView<PresenterType>> {
+        out PresentedViewType : PresentedActivityView<PresenterType>,
+        in BindingType : ViewDataBinding> {
 
     lateinit var testedActivity: T
         private set

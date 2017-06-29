@@ -1,5 +1,6 @@
 package com.infullmobile.android.infullmvp.sample.activity;
 
+import android.databinding.ViewDataBinding;
 import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
@@ -19,7 +20,7 @@ import static org.mockito.Mockito.mock;
 
 @RunWith(RobolectricGradleTestRunner.class)
 public class SampleActivityTest extends InFullMvpActivityBaseTest<
-        SampleActivity, SampleActivityPresenter, SampleActivityView> {
+        SampleActivity, SampleActivityPresenter, SampleActivityView, ViewDataBinding> {
 
     private FragmentStatePagerAdapter mockFragmentStatePagerAdapter = mock(FragmentStatePagerAdapter.class);
 
