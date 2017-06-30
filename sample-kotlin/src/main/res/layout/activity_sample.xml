@@ -5,8 +5,8 @@
     <data>
 
         <variable
-            name="title"
-            type="java.lang.String" />
+            name="myText"
+            type="String" />
 
     </data>
 
@@ -19,7 +19,7 @@
             android:id="@+id/textContainer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{}" />
+            android:text="@{title, default = `test1`}" />
 
         <android.support.v4.view.ViewPager
             android:id="@+id/pagesContainer"

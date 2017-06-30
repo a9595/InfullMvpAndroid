@@ -1,14 +1,12 @@
 package com.infullmobile.android.infullmvp.sample.activity
 
-import android.databinding.ViewDataBinding
 import android.os.Bundle
-
 import com.infullmobile.android.infullmvp.InFullMvpActivity
 import com.infullmobile.android.infullmvp.sample.activity.di.SampleActivityGraph
-
+import com.infullmobile.android.infullmvp.sample.databinding.ActivitySampleBinding
 import javax.inject.Inject
 
-class SampleActivity : InFullMvpActivity<SampleActivityPresenter, SampleActivityView, ViewDataBinding>() {
+class SampleActivity : InFullMvpActivity<SampleActivityPresenter, SampleActivityView, ActivitySampleBinding>() {
 
     @Inject lateinit var sampleActivityPresenter: SampleActivityPresenter
     @Inject lateinit var sampleActivityView: SampleActivityView

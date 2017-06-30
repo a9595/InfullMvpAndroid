@@ -21,6 +21,7 @@ android {
     dataBinding{
         enabled = true
     }
+    buildToolsVersion '25.0.0'
 }
 
 dependencies {
@@ -29,7 +30,7 @@ dependencies {
     provided kotlinLanguageDependency
     compile 'com.android.support:support-v4:25.3.1'
     compile 'com.google.guava:guava:19.0-rc2'
-    compile ('com.android.databinding:compiler:2.3.2'){
+    kapt ('com.android.databinding:compiler:2.3.1'){
         exclude module: 'guava'
     }
 }

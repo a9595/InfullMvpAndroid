@@ -22,6 +22,6 @@ open class SampleActivityView(private val pagerAdapter: FragmentStatePagerAdapte
     open var message: String
         get() = textField.text.toString()
         set(value) {
-            textField.text = value
+            binding.
         }
 }
