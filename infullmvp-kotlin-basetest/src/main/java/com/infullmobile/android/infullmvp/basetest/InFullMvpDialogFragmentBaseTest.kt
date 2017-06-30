@@ -1,19 +1,12 @@
 package com.infullmobile.android.infullmvp.basetest
 
-import com.infullmobile.android.infullmvp.InFullMvpDialogFragment
-import com.infullmobile.android.infullmvp.PresentedDialogView
-import com.infullmobile.android.infullmvp.Presenter
-
-import org.junit.Before
-import org.robolectric.RuntimeEnvironment
-import org.robolectric.shadows.support.v4.SupportFragmentController
-
+/*
 abstract class InFullMvpDialogFragmentBaseTest<T : InFullMvpDialogFragment<*, *>> {
 
     lateinit var testedFragment: T
         private set
 
-    val testedPresenter: Presenter<*>
+    val testedPresenter: Presenter<*, Any?>
         get() = testedFragment.presenter
     val testedView: PresentedDialogView<*>
         get() = testedFragment.presentedView
@@ -33,6 +26,9 @@ abstract class InFullMvpDialogFragmentBaseTest<T : InFullMvpDialogFragment<*, *>
     protected abstract fun provideFragment(): T
 
     open fun substituteModules(fragment: T) {
-        /* NO OP */
+        */
+/* NO OP *//*
+
     }
 }
+*/

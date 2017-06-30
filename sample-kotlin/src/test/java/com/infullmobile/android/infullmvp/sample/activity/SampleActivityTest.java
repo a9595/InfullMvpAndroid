@@ -1,23 +1,6 @@
 package com.infullmobile.android.infullmvp.sample.activity;
 
-import android.databinding.ViewDataBinding;
-import android.support.annotation.NonNull;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
-
-import com.infullmobile.android.infullmvp.basetest.InFullMvpActivityBaseTest;
-import com.infullmobile.android.infullmvp.sample.activity.di.SampleActivityModule;
-import com.infullmobile.android.infullmvp.sample.activity.di.SampleActivityScope;
-
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.robolectric.RobolectricGradleTestRunner;
-
-import dagger.Provides;
-
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Mockito.mock;
-
+/*
 @RunWith(RobolectricGradleTestRunner.class)
 public class SampleActivityTest extends InFullMvpActivityBaseTest<
         SampleActivity, SampleActivityPresenter, SampleActivityView, ViewDataBinding> {
@@ -56,3 +39,4 @@ public class SampleActivityTest extends InFullMvpActivityBaseTest<
         }
     }
 }
+*/

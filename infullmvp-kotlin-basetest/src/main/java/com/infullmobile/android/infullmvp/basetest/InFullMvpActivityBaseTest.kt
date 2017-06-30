@@ -1,21 +1,11 @@
 package com.infullmobile.android.infullmvp.basetest
 
-import android.content.Intent
-import android.databinding.ViewDataBinding
-
-import com.infullmobile.android.infullmvp.InFullMvpActivity
-import com.infullmobile.android.infullmvp.PresentedActivityView
-import com.infullmobile.android.infullmvp.Presenter
-
-import org.junit.Before
-import org.robolectric.Robolectric
-import org.robolectric.RuntimeEnvironment
-import org.robolectric.util.ActivityController
+/*
 
 abstract class InFullMvpActivityBaseTest<
         T : InFullMvpActivity<PresenterType, PresentedViewType, BindingType>,
-        PresenterType : Presenter<PresentedViewType>,
-        out PresentedViewType : PresentedActivityView<PresenterType>,
+        PresenterType : Presenter<PresentedViewType, Any?>,
+        out PresentedViewType : PresentedActivityView<PresenterType, Any?>,
         in BindingType : ViewDataBinding> {
 
     lateinit var testedActivity: T
@@ -47,6 +37,9 @@ abstract class InFullMvpActivityBaseTest<
     }
 
     open fun substituteModules(activity: T) {
-        /* NO OP */
+        */
+/* NO OP *//*
+
     }
 }
+*/

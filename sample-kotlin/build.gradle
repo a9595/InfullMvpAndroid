@@ -24,6 +24,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    dataBinding{
+        enabled = true
+    }
     lintOptions {
         lintConfig rootProject.file('gradle/lint.xml')
     }
@@ -36,6 +39,9 @@ dependencies {
     compile androidDesign
     compile dagger
     compile kotlinLanguageDependency
+    kapt ('com.android.databinding:compiler:2.3.1'){
+        exclude module: 'guava'
+    }
 
     testCompile project(path: ':infullmvp-kotlin-basetest')
     testCompile junit

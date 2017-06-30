@@ -6,7 +6,8 @@ import android.databinding.ViewDataBinding
 import android.net.Uri
 import android.os.Bundle
 
-abstract class Presenter<out PresentedViewType : PresentedView<*, *>>(val presentedView: PresentedViewType) {
+abstract class Presenter<out PresentedViewType : PresentedView<*, *>, DataBindingType : ViewDataBinding>(
+        val presentedView: PresentedViewType) {
 
     protected val context: Context
         get() = presentedView.context
@@ -14,7 +15,7 @@ abstract class Presenter<out PresentedViewType : PresentedView<*, *>>(val presen
     val tag: String
         get() = javaClass.simpleName
 
-    lateinit var binding: ViewDataBinding
+    lateinit var binding: DataBindingType
 
     abstract fun bind(intentBundle: Bundle, savedInstanceState: Bundle, intentData: Uri?)
 

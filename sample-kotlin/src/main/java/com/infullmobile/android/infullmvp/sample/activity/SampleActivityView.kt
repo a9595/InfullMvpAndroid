@@ -3,12 +3,12 @@ package com.infullmobile.android.infullmvp.sample.activity
 import android.support.v4.app.FragmentStatePagerAdapter
 import android.support.v4.view.ViewPager
 import android.widget.TextView
-
 import com.infullmobile.android.infullmvp.PresentedActivityView
 import com.infullmobile.android.infullmvp.sample.R
+import com.infullmobile.android.infullmvp.sample.databinding.ActivitySampleBinding
 
 open class SampleActivityView(private val pagerAdapter: FragmentStatePagerAdapter)
-    : PresentedActivityView<SampleActivityPresenter>() {
+    : PresentedActivityView<SampleActivityPresenter, ActivitySampleBinding>() {
 
     val textField: TextView by bindView(R.id.textContainer)
     val pager: ViewPager by bindView(R.id.pagesContainer)
@@ -22,6 +22,5 @@ open class SampleActivityView(private val pagerAdapter: FragmentStatePagerAdapte
     open var message: String
         get() = textField.text.toString()
         set(value) {
-            binding.
         }
 }

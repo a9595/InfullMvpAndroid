@@ -9,9 +9,9 @@ import android.view.Menu
 import android.view.MenuItem
 
 abstract class InFullMvpActivity<
-        PresenterType : Presenter<PresentedViewType>,
-        out PresentedViewType : PresentedActivityView<PresenterType>,
-        in BindingType : ViewDataBinding
+        PresenterType : Presenter<PresentedViewType, DataBindingType>,
+        out PresentedViewType : PresentedActivityView<PresenterType, DataBindingType>,
+        DataBindingType : ViewDataBinding
         > : AppCompatActivity() {
 
     abstract val presenter: PresenterType
@@ -22,7 +22,7 @@ abstract class InFullMvpActivity<
     override final fun onPostCreate(savedInstanceState: Bundle?) {
         super.onPostCreate(savedInstanceState)
         injectIntoGraph()
-        val binding = DataBindingUtil.setContentView<BindingType>(this, presentedView.layoutResId)
+        val binding = DataBindingUtil.setContentView<DataBindingType>(this, presentedView.layoutResId)
         presentedView.binding = binding
         presenter.binding = binding
         presentedView.bindUiElements(this, presenter)

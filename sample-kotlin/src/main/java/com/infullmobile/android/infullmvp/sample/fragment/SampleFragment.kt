@@ -1,5 +1,6 @@
 package com.infullmobile.android.infullmvp.sample.fragment
 
+import android.databinding.ViewDataBinding
 import android.os.Bundle
 
 import com.infullmobile.android.infullmvp.InFullMvpFragment
@@ -7,7 +8,7 @@ import com.infullmobile.android.infullmvp.sample.fragment.di.SampleFragmentGraph
 
 import javax.inject.Inject
 
-class SampleFragment : InFullMvpFragment<SampleFragmentPresenter, SampleFragmentView>() {
+class SampleFragment : InFullMvpFragment<SampleFragmentPresenter, SampleFragmentView, ViewDataBinding>() {
 
     @Inject internal lateinit var sampleFragmentPresenter: SampleFragmentPresenter
     @Inject internal lateinit var sampleFragmentView: SampleFragmentView

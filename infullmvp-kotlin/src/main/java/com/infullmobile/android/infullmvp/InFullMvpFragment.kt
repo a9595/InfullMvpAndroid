@@ -1,6 +1,7 @@
 package com.infullmobile.android.infullmvp
 
 import android.content.Intent
+import android.databinding.ViewDataBinding
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
@@ -8,8 +9,9 @@ import android.view.View
 import android.view.ViewGroup
 
 abstract class InFullMvpFragment<
-        PresenterType : Presenter<PresentedViewType>,
-        out PresentedViewType : PresentedFragmentView<PresenterType>
+        PresenterType : Presenter<PresentedViewType, DataBindingType>,
+        out PresentedViewType : PresentedFragmentView<PresenterType>,
+        DataBindingType : ViewDataBinding
         > : Fragment() {
 
     abstract val presenter: PresenterType

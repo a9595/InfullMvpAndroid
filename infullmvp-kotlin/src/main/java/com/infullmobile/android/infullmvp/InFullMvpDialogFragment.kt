@@ -1,13 +1,15 @@
 package com.infullmobile.android.infullmvp
 
 import android.app.Dialog
+import android.databinding.ViewDataBinding
 import android.os.Bundle
 import android.support.design.widget.BottomSheetDialogFragment
 import android.view.View
 
 abstract class InFullMvpDialogFragment<
-        PresenterType : Presenter<PresentedViewType>,
-        out PresentedViewType : PresentedDialogView<PresenterType>
+        PresenterType : Presenter<PresentedViewType, DataBindingType>,
+        out PresentedViewType : PresentedDialogView<PresenterType>,
+        DataBindingType : ViewDataBinding
         > : BottomSheetDialogFragment() {
 
     abstract val presenter: PresenterType
@@ -21,6 +23,6 @@ abstract class InFullMvpDialogFragment<
         val rootView = View.inflate(context, presentedView.layoutResId, null)
         dialog.setContentView(rootView)
         presentedView.bindUiElements(dialog, presenter)
-        presenter.bind(arguments?: Bundle(), Bundle(), activity.intent.data)
+        presenter.bind(arguments ?: Bundle(), Bundle(), activity.intent.data)
     }
 }

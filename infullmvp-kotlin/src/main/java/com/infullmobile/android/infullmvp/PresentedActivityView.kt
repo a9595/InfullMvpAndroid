@@ -9,7 +9,7 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 
-abstract class PresentedActivityView<PresenterType : Any>
+abstract class PresentedActivityView<PresenterType : Any, DataBindingType: ViewDataBinding>
     : ContextPresentedView<PresenterType, InFullMvpActivity<*, *, *>>() {
 
     private var activity: InFullMvpActivity<*, *, *>? = null
@@ -26,7 +26,7 @@ abstract class PresentedActivityView<PresenterType : Any>
         onViewsBound()
     }
 
-    open lateinit var binding: ViewDataBinding
+    open lateinit var binding: DataBindingType
 
     open val actionBar: ActionBar?
         get() = activity?.getSupportActionBar()
