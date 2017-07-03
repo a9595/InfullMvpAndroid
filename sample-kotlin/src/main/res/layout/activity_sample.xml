@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
 
     <data>
 
         <variable
-            name="myText"
-            type="String" />
+            name="productVm"
+            type="com.infullmobile.android.infullmvp.sample.activity.Product" />
+
+        <variable
+            name="view"
+            type="com.infullmobile.android.infullmvp.sample.activity.SampleActivityView" />
 
     </data>
 
@@ -16,16 +21,39 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textContainer"
+            android:id="@+id/productName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="sdfsf" />
+            android:text="@{productVm.name}"
+            tools:text="Apap 24 tabletki" />
 
-        <android.support.v4.view.ViewPager
-            android:id="@+id/pagesContainer"
+        <TextView
+            android:id="@+id/productPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{String.format(@string/price_format, productVm.price)}"
+            tools:text="28.60 zł" />
+
+        <TextView
+            android:id="@+id/productAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="3 szt" />
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
+            android:layout_height="wrap_content">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+" />
+        </LinearLayout>
 
     </LinearLayout>
 </layout>

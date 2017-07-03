@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">InFullMvp</string>
+    <string name="amount_format">%d szt.</string>
+    <string name="price_format">%.2f zł</string>
 </resources>
