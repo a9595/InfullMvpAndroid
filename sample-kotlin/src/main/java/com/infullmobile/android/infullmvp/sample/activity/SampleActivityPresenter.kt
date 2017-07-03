@@ -11,11 +11,21 @@ class SampleActivityPresenter(presentedView: SampleActivityView,
                               private val sampleActivityModel: SampleActivityModel)
     : Presenter<SampleActivityView, ActivitySampleBinding>(presentedView) {
 
-    lateinit var productVm: Product
-
     override fun bind(intentBundle: Bundle, savedInstanceState: Bundle, intentData: Uri?) {
+        loadProduct()
+        loadPharmacies()
+    }
+
+    private fun loadPharmacies() {
+        sampleActivityModel.getPharmacies()
+                .subscribe { pharmaciesList, throwable ->
+                    presentedView.displayPharmacies(pharmaciesList)
+                }
+    }
+
+    private fun loadProduct() {
         sampleActivityModel.getProduct().subscribe { product, throwable ->
-            binding.productVm = product
+            presentedView.displayProduct(product)
         }
     }
 
@@ -28,4 +38,10 @@ data class Product(val name: ObservableField<String>,
                 price: Double)
             : this(ObservableField(name),
                    ObservableDouble(price))
+}
+
+data class Pharmacy(val name: ObservableField<String>) {
+
+    constructor(name: String)
+            : this(ObservableField(name))
 }

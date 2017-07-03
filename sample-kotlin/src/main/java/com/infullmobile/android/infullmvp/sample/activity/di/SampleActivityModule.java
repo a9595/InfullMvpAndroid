@@ -42,8 +42,8 @@ public class SampleActivityModule {
 
     @Provides
     @SampleActivityScope
-    SampleActivityView providesSampleActivityView(FragmentStatePagerAdapter pagerAdapter) {
-        return new SampleActivityView(pagerAdapter);
+    SampleActivityView providesSampleActivityView() {
+        return new SampleActivityView();
     }
 
     @Provides

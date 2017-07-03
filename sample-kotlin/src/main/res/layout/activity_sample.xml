@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
 
@@ -13,18 +14,22 @@
             name="view"
             type="com.infullmobile.android.infullmvp.sample.activity.SampleActivityView" />
 
+        <import type="me.tatarka.bindingcollectionadapter2.LayoutManagers" />
+
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="40dp">
 
         <TextView
             android:id="@+id/productName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{productVm.name}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
             tools:text="Apap 24 tabletki" />
 
         <TextView
@@ -32,12 +37,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{String.format(@string/price_format, productVm.price)}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
             tools:text="28.60 zł" />
 
         <TextView
             android:id="@+id/productAmount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@{String.format(@string/amount_format, view.productAmount)}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
             tools:text="3 szt" />
 
         <LinearLayout
@@ -47,13 +55,23 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="@{view::onClickMinus}"
                 android:text="-" />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="@{(v) -> view.onClickPlus()}"
                 android:text="+" />
         </LinearLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:itemBinding="@{view.pharmacyItemBinding}"
+            app:items="@{view.pharmaciesItems}"
+            app:layoutManager="@{LayoutManagers.linear()}"
+            tools:listitem="@layout/item_pharmacy" />
 
     </LinearLayout>
 </layout>
