@@ -3,6 +3,8 @@ MVP library for android
 
 ## Usage
 
+[The whole library and its setup are described in the following article](https://github.com/inFullMobile/InfullMvpAndroid)
+
 #### Presenter
 ```kotlin
 class SampleMvpActivityPresenter @Inject constructor(
@@ -126,3 +128,44 @@ or
 `~/bin/android-studio.d/` if you install by hand for your user.
 
 or `~/Downloads/android-studio-{version_info}` if you were lazy after a download.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
